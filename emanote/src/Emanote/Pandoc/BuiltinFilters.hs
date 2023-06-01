@@ -44,3 +44,20 @@ fixEmojiFontFamily =
               newAttrs = attrs <> one emojiFontAttr
            in B.Span (id', classes, newAttrs) is
     x -> x
+
+removeLinksAndTagsNestedInLinks :: W.Walkable B.Inline b => b -> b
+removeLinksAndTagsNestedInLinks =
+  W.walk $ \case
+    B.Link (id, classes, attrs) inlines (url, title)
+      -> B.Link (id, classes, newAttrs) (removeLinksAndTags inlines) (url, title)
+    x -> x
+  where
+    removeLinksAndTags :: W.Walkable [B.Inline] b => b -> b
+    removeLinksAndTags = W.walk (concatMap linkOrTagToContents)
+    linkOrTagToContents :: B.Inline -> [B.Inline]
+    linkOrTagToContents (B.Link (_,_,_) is (_, _)) = is
+    linkOrTagToContents span@(B.Span _ is)
+      | Just _ <- HT.getTagFromInline span -> is
+    linkOrTagToContents i = [i]
+
+

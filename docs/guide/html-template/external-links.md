@@ -37,7 +37,7 @@ The displayed icon may depend on the link properties (e.g. the actual URI scheme
   * [$e^{i \pi} + 1 = 0$](https://en.wikipedia.org/wiki/Euler%27s_identity)
   * [`(>>=) :: forall a b. m a -> (a -> m b) -> m b`](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-62--62--61-)
   * [![[hello-badge.svg]]](https://emanote.srid.ca)
-  * mother_hetchel@weaversguild.com
+  * [mother_hetchel@weaversguild.com](mailto:mother_hetchel@weaversguild.com?subject=Lost%20distaff)
 * `{data-linkicon=none}` used to suppress the icon:
   * Water's formula is [H](https://en.wikipedia.org/wiki/Hydrogen){data-linkicon=none}₂[O](https://en.wikipedia.org/wiki/Oxygen){data-linkicon=none}.
   * A 90's style hyperlink:
